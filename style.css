@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    font-family: 'Indie Flower', cursive !important;
+    background: rgba(58, 97, 134, 0.575); /* Fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(137, 37, 62, 0.541), rgba(58, 97, 134, 0.589)),
+                url(fondo.jpg); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(137, 37, 62, 0.562), rgba(58, 97, 134, 0.575)),
+                url(fondo.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	width: 100%;
+	height: 1700px;
+    background-size: cover; /* Hace que la imagen de fondo cubra toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-blend-mode: overlay; /* Permite que los gradientes estén encima de la imagen */
+    margin: 0px;
+    padding: 0px;
+}
+
+
+::selection {
+    background: transparent;
+}
+
+h4 {
+    font-size: 26px;
+    line-height: 1px;
+    font-family: 'Amatic SC', cursive !important;
+}
+
+.color1 { color: #1BBC9B; }
+.color2 { color: #C0392B; }
+
+.card {
+    color: #013243;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 750px; /* Ajusta el valor máximo según sea necesario */
+    height: auto;
+    background: #e0e1dc;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(2000px);
+    box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5), 20px 0 60px rgba(0, 0, 0, .5);
+    transition: 1s;
+}
+
+.card:hover {
+    transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 10px 100px rgba(0, 0, 0, .5);
+}
+
+.card:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #BAC1BA;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+}
+
+.card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: #92A29C;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+
+.card .imgBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: .7s;
+}
+
+.card .bark {
+    position: absolute;
+    background: #e0e1dc;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .7s;
+    box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+}
+
+.card .imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Añadido para asegurar que la imagen se ajuste correctamente */
+}
+
+.card:hover .imgBox {
+    transform: rotateY(-135deg);
+}
+
+.card:hover .bark {
+    opacity: 1;
+    transition: .6s;
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 0 0 10px;
+    z-index: -1;
+    margin-top: 20px;
+}
+
+.card .details p {
+    font-size: 38px;
+    line-height: 5px;
+    transform: rotate(-10deg);
+    padding: 0 0 0 20px;
+}
+
+.card .details h4 {
+    text-align: center;
+	font-size: 35px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Consulta de medios para pantallas más pequeñas */
+/* Consulta de medios para pantallas más pequeñas */
+/* Consulta de medios para pantallas más pequeñas */
+@media only screen and (max-width: 600px) {
+	body {
+        background-image: url(fondogob.jpg);
+        background-position: center; /* Centra la imagen de fondo en dispositivos móviles */
+        background-size: cover; /* Ajusta el tamaño para cubrir toda la pantalla en dispositivos móviles */
+        min-height: 100vh; /* Garantiza una altura mínima del 100% de la altura de la ventana */
+        overflow: hidden; /* Evita el desplazamiento vertical en dispositivos móviles */
+        background-repeat: no-repeat; /* Evita que la imagen de fondo se repita en dispositivos móviles */
+    }
+    .card {
+		max-width: 900px; /* Puedes ajustar este valor según tus preferencias */
+        margin-left: 0px;
+        box-shadow: none;
+    }
+
+    .card .imgBox,
+    .card .details {
+        position: static;
+        transform: none;
+    }
+
+    .card .details {
+        margin-top: 10px;
+    }
+
+    .card .details h4,
+    .card .details p,
+    .card .details .text-right {
+        font-size: 24px; /* Ajusta el tamaño de la fuente según tus preferencias */
+    }
+}
